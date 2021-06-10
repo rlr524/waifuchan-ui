@@ -1,32 +1,54 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <app-header />
+    <div class="container">
+      <router-view />
     </div>
-    <router-view/>
+    <app-footer />
   </div>
 </template>
 
+<script>
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export default {
+  name: "App",
+  components: {
+    appHeader: Header,
+    appFooter: Footer,
+  },
+};
+</script>
+
 <style lang="scss">
+/* color palette:
+main orange: ff971d,
+light orange: ffe8d6,
+orange off white: f9f6f7,
+white: ffffff */
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+/* custom global styles */
+.-bg-color-main {
+  background-color: #ff971d;
+}
+.-bg-color-off-orange {
+  background-color: #f9f6f7;
+}
+.-bg-color-light-main {
+  background-color: #ffe8d6;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@media (max-width: 700px) {
+  #app {
+    margin: 0 auto;
   }
 }
 </style>

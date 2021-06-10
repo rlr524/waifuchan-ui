@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <app-top-waifus :section-title="'Top Waifus'" />
+    <app-my-waifus :section-title="'My Waifus'" />
+    <app-new-waifus :section-title="'New Waifus'" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import TopWaifus from "@/components/TopWaifus.vue";
+import MyWaifus from "@/components/MyWaifus.vue";
+import NewWaifus from "@/components/NewWaifus.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    appTopWaifus: TopWaifus,
+    appMyWaifus: MyWaifus,
+    appNewWaifus: NewWaifus,
+  },
+};
 </script>
+
+<style lang="scss" scoped>
+</style>
