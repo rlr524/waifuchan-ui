@@ -8,7 +8,13 @@
         class="h-16 w-16 ml-4 mr-2"
       />
       <span
-        class="header-title text-white text-3xl font-bold lg:flex-grow lg:flex hidden"
+        class="
+          header-title
+          text-white text-3xl
+          font-bold
+          lg:flex-grow lg:flex
+          hidden
+        "
       >
         Waifu-chan
       </span>
@@ -27,7 +33,12 @@
     </div>
     <div class="flex w-1/3 mr-4">
       <div
-        class="header-links text-white text-xl sm:flex-grow sm:flex sm:justify-end hidden"
+        class="
+          header-links
+          text-white text-xl
+          sm:flex-grow sm:flex sm:justify-end
+          hidden
+        "
       >
         <router-link
           to="/"
@@ -74,7 +85,9 @@ export default {
     ...authComputed,
   },
   data() {
-    return {};
+    return {
+      loggedIn: true,
+    };
   },
   methods: {
     logout() {
