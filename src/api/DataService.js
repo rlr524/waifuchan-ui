@@ -1,12 +1,29 @@
 import axios from "axios";
+import "dotenv";
 
-const ROOT_URL = "https://emiya-firebase-waifu-api.web.app/";
+var data = JSON.stringify({
+	collection: "waifus",
+	database: "waifuchanDB",
+	dataSource: "Cluster0",
+	projection: {
+		_id: 1,
+	},
+});
+
+var config = {
+	method: "post",
+	url: `${process.env.ROOT_URL}beta/action/findOne`,
+	headers: {
+		"Content-Type": "application/json",
+		"Access-Control-Request-Headers": "*",
+		"api-key": process.env.MONGO_DATA_API_KEY,
+	},
+	data: data,
+};
 
 export default {
-	fetchAllWaifus() {
-		return axios.get(`${ROOT_URL}api/v1/waifus/`);
-	},
-	fetchUser() {
-		return axios.get(`${ROOT_URL}api/v1/users/`);
+	async fetchAllWaifus() {
+		const response = await axios(config);
+		return await axios.get(JSON.stringify(response.data));
 	},
 };
